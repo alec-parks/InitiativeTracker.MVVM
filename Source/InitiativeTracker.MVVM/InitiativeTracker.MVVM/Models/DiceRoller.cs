@@ -2,7 +2,7 @@
 
 namespace InitiativeTracker.MVVM.Models
 {
-    static class DiceRoller
+    public static class DiceRoller
     {
         readonly static Random DiceRoll = new Random();
 

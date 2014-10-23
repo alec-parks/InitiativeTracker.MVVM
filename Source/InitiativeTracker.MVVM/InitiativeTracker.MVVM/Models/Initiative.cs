@@ -2,7 +2,7 @@
 
 namespace InitiativeTracker.MVVM.Models
 {
-    class Initiative
+    public class Initiative
     {
         private  Observable<int> _current = new Observable<int>(0);
 
@@ -14,14 +14,7 @@ namespace InitiativeTracker.MVVM.Models
 
         public int Modifier { get; set; }
 
-        public Initiative(){}
-        public Initiative(int initiative, int modifier )
-        {
-            Current = initiative;
-            Modifier = modifier;
-        }
-
-        public void RollInitiative()
+        public void Roll()
         {
             Current = DiceRoller.Roll(20, Modifier);
         }

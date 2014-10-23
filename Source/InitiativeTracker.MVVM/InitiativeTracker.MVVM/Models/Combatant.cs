@@ -2,23 +2,26 @@
 
 namespace InitiativeTracker.MVVM.Models
 {
-    class Combatant
+    public class Combatant
     {
-        private Observable<Initiative> _initiative = new Observable<Initiative>();
-        private  Observable<string> _name = new Observable<string>("");
-
-        public Initiative Initiative
+        private Observable<int> _counter = new Observable<int>(0);
+        public int Counter
         {
-            get { return _initiative.Value; }
-            set { _initiative.Value = value; }
+            get { return _counter.Value; }
+            set { _counter.Value = value; }
         }
-
-        public string Name
+        public string DisplayName
         {
-            get { return _name.Value; }
-            set { _name.Value = value; }
+            get
+            {
+                var counterDisplay = (Counter > 0
+                    ? " " + Counter
+                    : "");
+                return Name + counterDisplay;
+            }
         }
-
+        public Initiative Initiative{get; set; }
+        public string Name { get; set; }
         public CombatantType Type {get; set;}
     }
 }
