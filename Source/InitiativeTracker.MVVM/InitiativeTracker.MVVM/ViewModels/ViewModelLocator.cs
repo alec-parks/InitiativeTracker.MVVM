@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography;
-using Assisticant;
+﻿using Assisticant;
 using InitiativeTracker.MVVM.Models;
 
 namespace InitiativeTracker.MVVM.ViewModels
@@ -18,7 +17,7 @@ namespace InitiativeTracker.MVVM.ViewModels
                      Name = "Test Combatant",
                      Type = CombatantType.Player,
                      Counter = 1,
-                     Initiative = {Modifier = 5, Current = 13}
+                     Initiative = new Initiative {Modifier = 5, Current = 13, IsSet = true}
                  };
             }
         }

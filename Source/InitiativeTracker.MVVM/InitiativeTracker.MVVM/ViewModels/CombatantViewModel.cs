@@ -27,7 +27,9 @@ namespace InitiativeTracker.MVVM.ViewModels
         {
             get
             {
-               return _combatant.Initiative.IsSet ? _combatant.Initiative.Current.ToString() : "";
+               return _combatant.Initiative.IsSet 
+                   ? _combatant.Initiative.Current.ToString() 
+                   : "";
             }
         }
 
@@ -36,11 +38,10 @@ namespace InitiativeTracker.MVVM.ViewModels
         {
             get
             {
-                if (_combatant.Initiative.Modifier < 0)
-                    return "- " + _combatant.Initiative.Modifier;
-                if (_combatant.Initiative.Modifier > 0)
-                    return "+ " + _combatant.Initiative.Modifier;
-                return _combatant.Initiative.Modifier.ToString();
+                var mod = _combatant.Initiative.Modifier >= 0 
+                    ? "+ " + _combatant.Initiative.Modifier 
+                    : _combatant.Initiative.Modifier.ToString();
+                return mod;
             }
         }
 
