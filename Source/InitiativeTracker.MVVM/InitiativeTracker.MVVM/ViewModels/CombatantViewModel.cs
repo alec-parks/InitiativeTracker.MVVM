@@ -6,37 +6,48 @@ namespace InitiativeTracker.MVVM.ViewModels
     {
         private readonly Combatant _combatant;
 
+        public Combatant Combatant
+        {
+            get { return _combatant; }
+        }
+
         public CombatantViewModel(Combatant combatant)
         {
             _combatant = combatant;
         }
 
         //Display name
-        public string DisplayName()
+        public string DisplayName
         {
-            return _combatant.DisplayName;
+            get{return _combatant.DisplayName;}
         }
 
         //Current Initiaitve
-        public string Initiative()
+        public string Initiative
         {
-            return _combatant.Initiative.Current.ToString();
+            get
+            {
+               return _combatant.Initiative.IsSet ? _combatant.Initiative.Current.ToString() : "";
+            }
         }
 
         //Initiative Modifier
-        public string Modifier()
+        public string Modifier
         {
-            if (_combatant.Initiative.Modifier < 0)
-                return "-" + _combatant.Initiative.Modifier;
-            if (_combatant.Initiative.Modifier > 0)
-                return "+" + _combatant.Initiative.Modifier;
-            return _combatant.Initiative.Modifier.ToString();
+            get
+            {
+                if (_combatant.Initiative.Modifier < 0)
+                    return "- " + _combatant.Initiative.Modifier;
+                if (_combatant.Initiative.Modifier > 0)
+                    return "+ " + _combatant.Initiative.Modifier;
+                return _combatant.Initiative.Modifier.ToString();
+            }
         }
 
         //Indicate if Initiative has been set/rolled for combatant
-        public bool IsSet()
+        public bool IsSet
         {
-            return _combatant.Initiative.IsSet;
+            get { return _combatant.Initiative.IsSet; }
         }
     }
 }
