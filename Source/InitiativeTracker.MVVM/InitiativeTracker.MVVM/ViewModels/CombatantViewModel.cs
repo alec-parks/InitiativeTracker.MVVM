@@ -32,5 +32,11 @@ namespace InitiativeTracker.MVVM.ViewModels
                 return "+" + _combatant.Initiative.Modifier;
             return _combatant.Initiative.Modifier.ToString();
         }
+
+        //Indicate if Initiative has been set/rolled for combatant
+        public bool IsSet()
+        {
+            return _combatant.Initiative.IsSet;
+        }
     }
 }

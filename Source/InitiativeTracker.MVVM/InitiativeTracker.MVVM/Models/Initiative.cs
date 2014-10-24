@@ -6,6 +6,8 @@ namespace InitiativeTracker.MVVM.Models
     {
         private  Observable<int> _current = new Observable<int>(0);
 
+        public bool IsSet { get; set; }
+
         public int Current
         {
             get { return _current.Value; }
@@ -17,6 +19,7 @@ namespace InitiativeTracker.MVVM.Models
         public void Roll()
         {
             Current = DiceRoller.Roll(20, Modifier);
+            IsSet = true;
         }
     }
 }
