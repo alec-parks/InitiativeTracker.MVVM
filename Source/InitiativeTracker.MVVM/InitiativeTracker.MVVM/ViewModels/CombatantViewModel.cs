@@ -34,6 +34,12 @@ namespace InitiativeTracker.MVVM.ViewModels
             }
         }
 
+        //Indicate if Initiative has been set/rolled for combatant
+        public bool IsSet
+        {
+            get { return _combatant.Initiative.IsSet; }
+        }
+
         //Initiative Modifier
         public string Modifier
         {
@@ -46,10 +52,10 @@ namespace InitiativeTracker.MVVM.ViewModels
             }
         }
 
-        //Indicate if Initiative has been set/rolled for combatant
-        public bool IsSet
+        //Combatant Type
+        public Enum Type
         {
-            get { return _combatant.Initiative.IsSet; }
+            get { return _combatant.Type; }
         }
     }
 }

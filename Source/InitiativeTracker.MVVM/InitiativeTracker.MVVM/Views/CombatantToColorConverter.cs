@@ -9,12 +9,18 @@ namespace InitiativeTracker.MVVM.Views
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (CombatantType) parameter == CombatantType.Monster ? "#FFFF0000" : "#FF00FF00";
+            if (value != null)
+            {
+                return (CombatantType)value == CombatantType.Monster 
+                    ? "#FFFF0000" 
+                    : "#FF00FF00";
+            }
+            return "#FF000000";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (string) parameter == "#FFFF0000" ? CombatantType.Monster : CombatantType.Player;
+          throw new NotImplementedException();
         }
     }
 }
