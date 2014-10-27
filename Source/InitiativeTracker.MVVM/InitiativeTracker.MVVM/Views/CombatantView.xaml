@@ -13,7 +13,7 @@
             <ColumnDefinition Width="100*"/>
             <ColumnDefinition Width="100*"/>
         </Grid.ColumnDefinitions>
-    	<TextBlock Grid.Column="0" TextWrapping="Wrap" Text="{Binding DisplayName}" Foreground="{Binding Converter={StaticResource ColorConverter}}" VerticalAlignment="Center" FontSize="14"/>
+    	<TextBlock Grid.Column="0" TextWrapping="Wrap" Text="{Binding DisplayName}" Foreground="{Binding Path=Type, Converter={StaticResource ColorConverter}}" VerticalAlignment="Center" FontSize="14"/>
     	<TextBlock Grid.Column="1" TextWrapping="Wrap" Text="{Binding Initiative}" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="14"/>
     	<TextBlock Grid.Column="2" TextWrapping="Wrap" Text="{Binding Modifier}" VerticalAlignment="Center" HorizontalAlignment="Right"  FontSize="14"/>
     </Grid>

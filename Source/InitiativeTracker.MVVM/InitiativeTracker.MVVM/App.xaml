@@ -6,6 +6,6 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <vm:ViewModelLocator x:Key="Locator" />
-        <c:CombatantToColorConverter x:Key="ColorConverter" />
+        <c:CombatantToColorConverter x:Key="ColorConverter" Brush="#FF00C5FF" />
     </Application.Resources>
 </Application>
