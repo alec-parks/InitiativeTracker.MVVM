@@ -60,6 +60,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\CombatantToColorConverter.cs" />
     <Compile Include="ViewModels\CombatantViewModel.cs" />
     <Compile Include="ViewModels\CombatViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />

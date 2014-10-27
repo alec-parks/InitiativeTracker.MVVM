@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using InitiativeTracker.MVVM.Models;
 
 namespace InitiativeTracker.MVVM.ViewModels
@@ -7,14 +8,19 @@ namespace InitiativeTracker.MVVM.ViewModels
     {
         private readonly Combat _combat;
 
+        public Combat Combat
+        {
+            get { return _combat; }
+        }
+
         public CombatViewModel(Combat combat)
         {
             _combat = combat;
         }
 
-        public IEnumerable<Combatant> Combatants()
+        public IEnumerable<CombatantViewModel> Combatant
         {
-            return _combat.Combatants;
+            get { return _combat.Combatants.Select(combatant => new CombatantViewModel(combatant)); }
         }
     }
 }

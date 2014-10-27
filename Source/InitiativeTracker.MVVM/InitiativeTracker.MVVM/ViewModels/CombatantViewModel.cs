@@ -1,4 +1,5 @@
-﻿using InitiativeTracker.MVVM.Models;
+﻿using System;
+using InitiativeTracker.MVVM.Models;
 
 namespace InitiativeTracker.MVVM.ViewModels
 {
@@ -40,7 +41,7 @@ namespace InitiativeTracker.MVVM.ViewModels
             {
                 var mod = _combatant.Initiative.Modifier >= 0 
                     ? "+ " + _combatant.Initiative.Modifier 
-                    : _combatant.Initiative.Modifier.ToString();
+                    : "- " + Math.Abs(_combatant.Initiative.Modifier);
                 return mod;
             }
         }

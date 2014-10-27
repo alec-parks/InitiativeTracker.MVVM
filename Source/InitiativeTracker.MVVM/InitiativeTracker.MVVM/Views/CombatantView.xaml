@@ -6,13 +6,14 @@
              d:DataContext="{Binding CombatantViewModel, Source={StaticResource Locator}}"
              mc:Ignorable="d" 
              d:DesignHeight="40" Width="435">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100*"/>
             <ColumnDefinition Width="100*"/>
             <ColumnDefinition Width="100*"/>
         </Grid.ColumnDefinitions>
-    	<TextBlock Grid.Column="0" TextWrapping="Wrap" Text="{Binding DisplayName}" VerticalAlignment="Center" FontSize="14"/>
+    	<TextBlock Grid.Column="0" TextWrapping="Wrap" Text="{Binding DisplayName}" Foreground="{Binding Converter={StaticResource ColorConverter}}" VerticalAlignment="Center" FontSize="14"/>
     	<TextBlock Grid.Column="1" TextWrapping="Wrap" Text="{Binding Initiative}" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="14"/>
     	<TextBlock Grid.Column="2" TextWrapping="Wrap" Text="{Binding Modifier}" VerticalAlignment="Center" HorizontalAlignment="Right"  FontSize="14"/>
     </Grid>
