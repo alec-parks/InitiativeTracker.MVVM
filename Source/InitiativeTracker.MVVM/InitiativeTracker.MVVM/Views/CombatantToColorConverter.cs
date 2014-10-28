@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Data;
-using System.Windows.Media;
 using InitiativeTracker.MVVM.Models;
 
 namespace InitiativeTracker.MVVM.Views

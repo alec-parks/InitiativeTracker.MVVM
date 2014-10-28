@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
+using Assisticant;
 using InitiativeTracker.MVVM.Models;
 
 namespace InitiativeTracker.MVVM.ViewModels
@@ -21,6 +23,14 @@ namespace InitiativeTracker.MVVM.ViewModels
         public IEnumerable<CombatantViewModel> Combatant
         {
             get { return _combat.Combatants.Select(combatant => new CombatantViewModel(combatant)); }
+        }
+
+        public ICommand AddCombatant
+        {
+            get
+            {
+                return MakeCommand.Do(()=> _combat.AddCombatant())
+            }
         }
     }
 }
