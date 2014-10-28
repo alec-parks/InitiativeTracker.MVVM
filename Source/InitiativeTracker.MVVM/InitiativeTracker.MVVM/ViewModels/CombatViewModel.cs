@@ -14,12 +14,6 @@ namespace InitiativeTracker.MVVM.ViewModels
 
         public event Action<object, AddCombatantEventArgs> AddCombatantEvent;
 
-        protected virtual void OnAddCombatantEvent(object arg1, AddCombatantEventArgs arg2)
-        {
-            Action<object, AddCombatantEventArgs> handler = AddCombatantEvent;
-            if (handler != null) handler(arg1, arg2);
-        }
-
         public Combat Combat
         {
             get { return _combat; }
@@ -37,7 +31,14 @@ namespace InitiativeTracker.MVVM.ViewModels
 
         public ICommand AddCombatant
         {
-            get { return MakeCommand.Do(() => _combat.AddCombatant(new Combatant())); }
+            get
+            {
+                return MakeCommand
+                    .Do(() =>
+                    {
+                        
+                    });
+            }
         }
     }
 }
