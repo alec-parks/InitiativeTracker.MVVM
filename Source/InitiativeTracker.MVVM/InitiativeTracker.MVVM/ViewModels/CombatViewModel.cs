@@ -1,14 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 using Assisticant;
 using InitiativeTracker.MVVM.Models;
+using InitiativeTracker.MVVM.ViewModels.EventArgs;
 
 namespace InitiativeTracker.MVVM.ViewModels
 {
     public class CombatViewModel
     {
         private readonly Combat _combat;
+
+        public event Action<object, AddCombatantEventArgs> AddCombatantEvent;
+
+        protected virtual void OnAddCombatantEvent(object arg1, AddCombatantEventArgs arg2)
+        {
+            Action<object, AddCombatantEventArgs> handler = AddCombatantEvent;
+            if (handler != null) handler(arg1, arg2);
+        }
 
         public Combat Combat
         {
@@ -23,6 +33,11 @@ namespace InitiativeTracker.MVVM.ViewModels
         public IEnumerable<CombatantViewModel> Combatant
         {
             get { return _combat.Combatants.Select(combatant => new CombatantViewModel(combatant)); }
+        }
+
+        public ICommand AddCombatant
+        {
+            get { return MakeCommand.Do(() => _combat.AddCombatant(new Combatant())); }
         }
     }
 }
