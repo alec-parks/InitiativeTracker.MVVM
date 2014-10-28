@@ -19,11 +19,13 @@ namespace InitiativeTracker.MVVM.ViewModels
 
         public string Name
         {
+            get { return _combatant.Name; }
             set { _combatant.Name = value; }
         }
 
         public int Modifier
         {
+            get { return _combatant.Initiative.Modifier; }
             set { _combatant.Initiative.Modifier = value; }
         }
 

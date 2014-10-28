@@ -24,13 +24,5 @@ namespace InitiativeTracker.MVVM.ViewModels
         {
             get { return _combat.Combatants.Select(combatant => new CombatantViewModel(combatant)); }
         }
-
-        public ICommand AddCombatant
-        {
-            get
-            {
-                return MakeCommand.Do(()=> _combat.AddCombatant())
-            }
-        }
     }
 }
