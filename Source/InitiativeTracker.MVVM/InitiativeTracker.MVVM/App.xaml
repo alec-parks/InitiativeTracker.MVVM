@@ -7,5 +7,6 @@
     <Application.Resources>
         <vm:ViewModelLocator x:Key="Locator" />
         <c:CombatantToColorConverter x:Key="ColorConverter" Brush="#FF00C5FF" />
+        <c:CombatantToBool x:Key="CombatantToBool" />
     </Application.Resources>
 </Application>

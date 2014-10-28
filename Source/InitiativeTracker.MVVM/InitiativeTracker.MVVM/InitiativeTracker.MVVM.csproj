@@ -61,6 +61,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\AddCombatantViewModel.cs" />
+    <Compile Include="Views\AddCombatantView.xaml.cs">
+      <DependentUpon>AddCombatantView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CombatantToBool.cs" />
     <Compile Include="Views\CombatantToColorConverter.cs" />
     <Compile Include="ViewModels\CombatantViewModel.cs" />
     <Compile Include="ViewModels\CombatViewModel.cs" />
@@ -80,6 +84,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AddCombatantView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CombatantView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

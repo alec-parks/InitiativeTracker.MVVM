@@ -8,28 +8,30 @@ namespace InitiativeTracker.MVVM.ViewModels
         //Private RO Combatant Field
         private readonly Combatant _combatant;
         //Default Constructor
-        public ViewModelLocator ()
+        public ViewModelLocator()
         {
             if (DesignMode)
             {
-                 _combatant = new Combatant
-                 {
-                     Name = "Test Combatant",
-                     Type = CombatantType.Monster,
-                     Counter = 1,
-                     Initiative = new Initiative {Modifier = -5, Current = 13, IsSet = true}
-                 };
+                _combatant = new Combatant
+                {
+                    Name = "Test Combatant",
+                    Type = CombatantType.Monster,
+                    Counter = 1,
+                    Initiative = new Initiative {Modifier = -5, Current = 13, IsSet = true}
+                };
             }
         }
 
         //CombatantViewModel Property
 
-        public object CombatantViewModel 
+        public object CombatantViewModel
         {
-            get
-            {
-                return ViewModel(() => new CombatantViewModel(_combatant));
-            }
+            get { return ViewModel(() => new CombatantViewModel(_combatant)); }
+        }
+
+        public object AddCombatantViewModel
+        {
+            get { return ViewModel(() => new AddCombatantViewModel(_combatant)); }
         }
     }
 }
