@@ -50,5 +50,18 @@ namespace InitiativeTracker.MVVM.ViewModels
                     });
             }
         }
+
+        public ICommand RemoveCombatant
+        {
+            get
+            {
+                return MakeCommand
+                    .Do(() =>
+                    {
+
+                    });
+
+            }
+        }
     }
 }
