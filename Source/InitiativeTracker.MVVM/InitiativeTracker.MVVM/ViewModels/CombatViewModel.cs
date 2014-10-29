@@ -36,7 +36,17 @@ namespace InitiativeTracker.MVVM.ViewModels
                 return MakeCommand
                     .Do(() =>
                     {
-                        
+                        var args = new AddCombatantEventArgs();
+
+                        if (AddCombatantEvent != null)
+                        {
+                            AddCombatantEvent(this, args);
+                        }
+
+                        if (args.Confirmed)
+                        {
+                            _combat.AddCombatant(args.Combatant);
+                        }
                     });
             }
         }
