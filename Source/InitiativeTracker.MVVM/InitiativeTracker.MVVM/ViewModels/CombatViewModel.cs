@@ -24,7 +24,7 @@ namespace InitiativeTracker.MVVM.ViewModels
             _combat = combat;
         }
 
-        public IEnumerable<CombatantViewModel> Combatant
+        public IEnumerable<CombatantViewModel> Combatants
         {
             get { return _combat.Combatants.Select(combatant => new CombatantViewModel(combatant)); }
         }
