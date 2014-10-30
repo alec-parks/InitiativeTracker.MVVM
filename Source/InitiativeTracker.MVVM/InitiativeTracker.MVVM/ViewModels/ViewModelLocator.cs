@@ -7,6 +7,7 @@ namespace InitiativeTracker.MVVM.ViewModels
     {
         //Private RO Combatant Field
         private readonly Combatant _combatant;
+        private readonly Combat _combat;
         //Default Constructor
         public ViewModelLocator()
         {
@@ -19,6 +20,13 @@ namespace InitiativeTracker.MVVM.ViewModels
                     Counter = 1,
                     Initiative = new Initiative {Modifier = -5, Current = 13, IsSet = true}
                 };
+
+                _combat= new Combat();
+                for (int x = 0; x <= 10; x++)
+                {
+                    _combat.AddCombatant(_combatant);
+                }
+
             }
         }
 
@@ -32,6 +40,11 @@ namespace InitiativeTracker.MVVM.ViewModels
         public object AddCombatantViewModel
         {
             get { return ViewModel(() => new AddCombatantViewModel(_combatant)); }
+        }
+
+        public object CombatViewModel
+        {
+            get { return ViewModel(() => new CombatViewModel(_combat)); }
         }
     }
 }
