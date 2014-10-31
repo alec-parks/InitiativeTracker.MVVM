@@ -28,9 +28,15 @@ namespace InitiativeTracker.MVVM.ViewModels
                 }
 
             }
+            else
+            {
+                _combat = new Combat();    
+            }
+            
+            
         }
 
-        //CombatantViewModel Property
+        //ViewModel Properties
 
         public object CombatantViewModel
         {

@@ -24,6 +24,8 @@ namespace InitiativeTracker.MVVM.ViewModels
             _combat = combat;
         }
 
+        public Combatant SelectedCombatant { get; set; }
+
         public IEnumerable<CombatantViewModel> Combatants
         {
             get { return _combat.Combatants.Select(combatant => new CombatantViewModel(combatant)); }
@@ -58,7 +60,8 @@ namespace InitiativeTracker.MVVM.ViewModels
                 return MakeCommand
                     .Do(() =>
                     {
-
+                        if(SelectedCombatant != null)
+                            _combat.RemoveCombatant(SelectedCombatant);
                     });
 
             }

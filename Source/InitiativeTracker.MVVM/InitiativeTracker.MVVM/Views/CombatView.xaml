@@ -8,7 +8,7 @@
              Unloaded="UserControl_Unloaded"
              d:DataContext="{Binding CombatViewModel, Source={StaticResource Locator}}"
              mc:Ignorable="d" 
-             d:DesignHeight="300" Width="600">
+             d:DesignHeight="300" Width="644.746">
     <Grid Margin="0,0,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100*"/>
@@ -21,7 +21,7 @@
             <RowDefinition Height="121*"/>
             <RowDefinition Height="29*"/>
         </Grid.RowDefinitions>
-        <ListBox Grid.ColumnSpan="5" ItemsSource="{Binding Combatants}" Margin="0,0,0,5">
+        <ListBox Grid.ColumnSpan="5" ItemsSource="{Binding Combatants}" Margin="0,0,0,5" SelectedItem="{Binding SelectedCombatant}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <views:CombatantView />
