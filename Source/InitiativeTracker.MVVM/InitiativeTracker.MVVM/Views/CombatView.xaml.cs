@@ -1,4 +1,7 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
+using InitiativeTracker.MVVM.ViewModels;
+using InitiativeTracker.MVVM.ViewModels.EventArgs;
 
 namespace InitiativeTracker.MVVM.Views
 {
@@ -11,5 +14,27 @@ namespace InitiativeTracker.MVVM.Views
         {
             InitializeComponent();
         }
+
+        private CombatViewModel ViewModel
+        {
+            get { return (CombatViewModel)DataContext; }
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            ViewModel.AddCombatantEvent += AddCombatantEventHandler;
+        }
+        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+            ViewModel.AddCombatantEvent -= AddCombatantEventHandler;
+        }
+
+        private void AddCombatantEventHandler(object sender, AddCombatantEventArgs e)
+        {
+            var a = 1;
+            a++;
+        }
+
+
     }
 }
