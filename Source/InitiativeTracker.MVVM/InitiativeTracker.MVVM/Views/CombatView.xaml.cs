@@ -27,6 +27,7 @@ namespace InitiativeTracker.MVVM.Views
         {
             ViewModel.AddCombatantEvent += AddCombatantEventHandler;
         }
+
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
             ViewModel.AddCombatantEvent -= AddCombatantEventHandler;
@@ -35,11 +36,10 @@ namespace InitiativeTracker.MVVM.Views
         private void AddCombatantEventHandler(object sender, AddCombatantEventArgs e)
         {
             var addCombatantDiag = new AddCombatantDialog();
-            e.Combatant = new Combatant();
             if (addCombatantDiag.ShowDialog() == true)
             {
                 e.Confirmed = true;
-                e.Combatant = ForView.Unwrap<Combatant>(addCombatantDiag);
+                e.Combatant = ForView.Unwrap<Combatant>(addCombatantDiag.AddCombatantViewModel);
             }
         }
 

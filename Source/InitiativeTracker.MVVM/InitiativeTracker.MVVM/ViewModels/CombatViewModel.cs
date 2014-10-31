@@ -46,13 +46,6 @@ namespace InitiativeTracker.MVVM.ViewModels
                             AddCombatantEvent(this, args);
                         }
 
-                        var addCombatantDiag = new AddCombatantDialog();
-
-                        if (addCombatantDiag.ShowDialog() == true)
-                        {
-                            args.Combatant = addCombatantDiag.AddCombatantViewModel.Combatant;
-                        }
-
                         if (args.Confirmed)
                         {
                             _combat.AddCombatant(args.Combatant);

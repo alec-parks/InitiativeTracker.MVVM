@@ -14,5 +14,15 @@ namespace InitiativeTracker.MVVM.Views.Dialogs
         }
 
         public AddCombatantViewModel AddCombatantViewModel { get;set;}
+
+        private void Add_Button_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
+
+        private void Cancel_Button_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+        }
     }
 }
