@@ -6,6 +6,10 @@ namespace InitiativeTracker.MVVM.Models
     {
         private Observable<int> _counter = new Observable<int>(0);
 
+        private Observable<string> _name = new Observable<string>("");
+
+        private Observable<CombatantType> _type = new Observable<CombatantType>(CombatantType.Player);
+
         public Combatant()
         {
             Initiative = new Initiative();
@@ -29,9 +33,17 @@ namespace InitiativeTracker.MVVM.Models
         }
         
         public Initiative Initiative{get; set; }
-        
-        public string Name { get; set; }
-        
-        public CombatantType Type {get; set;}
+
+        public string Name
+        {
+            get { return _name; }
+            set { _name.Value = value; }
+        }
+
+        public CombatantType Type
+        {
+            get { return _type; } 
+            set { _type.Value = value; }
+        }
     }
 }
