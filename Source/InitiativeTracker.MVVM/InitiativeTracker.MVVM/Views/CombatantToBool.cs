@@ -9,22 +9,18 @@ namespace InitiativeTracker.MVVM.Views
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            CombatantType combatantValue;
-            CombatantType combatantParameter;
+            CombatantType combatantValue = new CombatantType();
+            CombatantType combatantParameter= new CombatantType();
             Enum.TryParse(value.ToString(), out combatantValue);
             Enum.TryParse(parameter.ToString(), out combatantParameter);
-            if (combatantValue == combatantParameter)
-                return true;
-            return false;
+            return combatantValue == combatantParameter;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             bool valueBool;
             bool.TryParse(value.ToString(), out valueBool);
-            if (valueBool)
-                return parameter;
-            return Binding.DoNothing;
+            return valueBool ? parameter : Binding.DoNothing;
         }
     }
 }

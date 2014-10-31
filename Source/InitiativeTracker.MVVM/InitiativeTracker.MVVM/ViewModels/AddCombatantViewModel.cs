@@ -29,7 +29,7 @@ namespace InitiativeTracker.MVVM.ViewModels
             set { _combatant.Initiative.Modifier = value; }
         }
 
-        public Enum Type
+        public CombatantType Type
         {
             get { return _combatant.Type; }
             set { _combatant.Type = (CombatantType) value; }

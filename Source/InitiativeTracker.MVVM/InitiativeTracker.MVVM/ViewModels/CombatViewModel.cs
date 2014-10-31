@@ -5,6 +5,7 @@ using System.Windows.Input;
 using Assisticant;
 using InitiativeTracker.MVVM.Models;
 using InitiativeTracker.MVVM.ViewModels.EventArgs;
+using InitiativeTracker.MVVM.Views.Dialogs;
 
 namespace InitiativeTracker.MVVM.ViewModels
 {
@@ -43,6 +44,13 @@ namespace InitiativeTracker.MVVM.ViewModels
                         if (AddCombatantEvent != null)
                         {
                             AddCombatantEvent(this, args);
+                        }
+
+                        var addCombatantDiag = new AddCombatantDialog();
+
+                        if (addCombatantDiag.ShowDialog() == true)
+                        {
+                            args.Combatant = addCombatantDiag.AddCombatantViewModel.Combatant;
                         }
 
                         if (args.Confirmed)

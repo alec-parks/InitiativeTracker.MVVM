@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using InitiativeTracker.MVVM.ViewModels;
 
 namespace InitiativeTracker.MVVM.Views.Dialogs
 {
@@ -11,5 +12,7 @@ namespace InitiativeTracker.MVVM.Views.Dialogs
         {
             InitializeComponent();
         }
+
+        public AddCombatantViewModel AddCombatantViewModel { get;set;}
     }
 }

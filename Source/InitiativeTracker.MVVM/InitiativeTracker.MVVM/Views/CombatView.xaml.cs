@@ -34,14 +34,13 @@ namespace InitiativeTracker.MVVM.Views
 
         private void AddCombatantEventHandler(object sender, AddCombatantEventArgs e)
         {
-            e.Confirmed = true;
-            e.Combatant = new Combatant
+            var addCombatantDiag = new AddCombatantDialog();
+            e.Combatant = new Combatant();
+            if (addCombatantDiag.ShowDialog() == true)
             {
-                Name = "Test Combatant",
-                Type = CombatantType.Monster,
-                Counter = 1,
-                Initiative = new Initiative { Modifier = -5, Current = 13, IsSet = true }
-            };
+                e.Confirmed = true;
+                e.Combatant = ForView.Unwrap<Combatant>(addCombatantDiag);
+            }
         }
 
 
