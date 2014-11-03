@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using Assisticant;
-using InitiativeTracker.MVVM.Models;
 using InitiativeTracker.MVVM.ViewModels;
 using InitiativeTracker.MVVM.ViewModels.EventArgs;
 using InitiativeTracker.MVVM.Views.Dialogs;
@@ -39,7 +38,7 @@ namespace InitiativeTracker.MVVM.Views
             if (addCombatantDiag.ShowDialog() == true)
             {
                 e.Confirmed = true;
-                e.Combatant = ForView.Unwrap<Combatant>(addCombatantDiag.AddCombatantViewModel);
+                e.Combatant = addCombatantDiag.AddCombatantViewModel.Combatant;
             }
         }
 
