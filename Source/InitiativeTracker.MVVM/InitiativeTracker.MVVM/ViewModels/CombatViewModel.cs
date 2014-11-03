@@ -5,7 +5,6 @@ using System.Windows.Input;
 using Assisticant;
 using InitiativeTracker.MVVM.Models;
 using InitiativeTracker.MVVM.ViewModels.EventArgs;
-using InitiativeTracker.MVVM.Views.Dialogs;
 
 namespace InitiativeTracker.MVVM.ViewModels
 {
@@ -25,7 +24,7 @@ namespace InitiativeTracker.MVVM.ViewModels
             _combat = combat;
         }
 
-        public Combatant SelectedCombatant { get; set; }
+        public CombatantViewModel SelectedCombatant { get; set; }
 
         public IEnumerable<CombatantViewModel> Combatants
         {
@@ -62,7 +61,7 @@ namespace InitiativeTracker.MVVM.ViewModels
                     .Do(() =>
                     {
                         if(SelectedCombatant != null)
-                            _combat.RemoveCombatant(SelectedCombatant);
+                            _combat.RemoveCombatant(SelectedCombatant.Combatant);
                     });
 
             }

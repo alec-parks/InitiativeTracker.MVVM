@@ -45,5 +45,23 @@ namespace InitiativeTracker.MVVM.Models
             get { return _type; } 
             set { _type.Value = value; }
         }
+
+        public override int GetHashCode()
+        {
+            return DisplayName.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (this == obj)
+                return true;
+            
+            var combatantObj = obj as Combatant;
+
+            if (combatantObj == null)
+                return false;
+
+            return Counter == combatantObj.Counter && Name == combatantObj.Name && Type == combatantObj.Type;
+        }
     }
 }

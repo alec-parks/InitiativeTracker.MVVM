@@ -17,7 +17,7 @@ namespace InitiativeTracker.MVVM.Views
             switch (combatantType)
             {
                 case CombatantType.Player:
-                    Brush = "#FF00FF00";
+                    Brush = "#FF09660D";
                     break;
                 case CombatantType.Monster:
                     Brush = "#FFFF0000";

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Assisticant.Fields;
 using InitiativeTracker.MVVM.Models;
 
 namespace InitiativeTracker.MVVM.ViewModels
@@ -32,7 +32,7 @@ namespace InitiativeTracker.MVVM.ViewModels
         public CombatantType Type
         {
             get { return _combatant.Type; }
-            set { _combatant.Type = (CombatantType) value; }
+            set { _combatant.Type = value; }
         }
 
         public int Counter

@@ -18,7 +18,7 @@ namespace InitiativeTracker.MVVM.ViewModels
                 _combatant = new Combatant
                 {
                     Name = "Test Combatant",
-                    Type = CombatantType.Monster,
+                    Type = CombatantType.Player,
                     Counter = 1,
                     Initiative = new Initiative {Modifier = -5, Current = 13, IsSet = true}
                 };
