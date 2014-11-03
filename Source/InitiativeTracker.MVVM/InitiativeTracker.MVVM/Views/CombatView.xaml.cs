@@ -35,13 +35,12 @@ namespace InitiativeTracker.MVVM.Views
 
         private void AddCombatantEventHandler(object sender, AddCombatantEventArgs e)
         {
-            var addCombatantDiag = new AddCombatantDialog(){ShowInTaskbar = false};
+            var addCombatantDiag = new AddCombatantDialog();
             if (addCombatantDiag.ShowDialog() == true)
             {
                 e.Confirmed = true;
-                e.Combatant = addCombatantDiag.Combatant;
+                e.Combatant = ForView.Unwrap<Combatant>(addCombatantDiag.AddCombatantViewModel);
             }
-            
         }
 
 
