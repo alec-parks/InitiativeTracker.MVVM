@@ -5,7 +5,7 @@ namespace InitiativeTracker.MVVM.ViewModels
 {
     public class AddCombatantViewModel
     {
-        private Combatant _combatant;
+        private Observable<Combatant> _combatant = new Observable<Combatant>();
 
         public Combatant Combatant
         {
@@ -14,7 +14,7 @@ namespace InitiativeTracker.MVVM.ViewModels
 
         public AddCombatantViewModel(Combatant combatant)
         {
-            _combatant = combatant;
+            _combatant.Value = combatant;
         }
 
         public string Name
@@ -25,19 +25,19 @@ namespace InitiativeTracker.MVVM.ViewModels
 
         public int Modifier
         {
-            get { return _combatant.Initiative.Modifier; }
-            set { _combatant.Initiative.Modifier = value; }
+            get { return _combatant.Value.Initiative.Modifier; }
+            set { _combatant.Value.Initiative.Modifier = value; }
         }
 
         public CombatantType Type
         {
-            get { return _combatant.Type; }
-            set { _combatant.Type = value; }
+            get { return _combatant.Value.Type; }
+            set { _combatant.Value.Type = value; }
         }
 
         public int Counter
         {
-            set { _combatant.Counter = value; }
+            set { _combatant.Value.Counter = value; }
         }
     }
 }
