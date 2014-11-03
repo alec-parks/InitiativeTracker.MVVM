@@ -56,12 +56,12 @@ namespace InitiativeTracker.MVVM.Models
             if (this == obj)
                 return true;
             
-            var combatantObj = obj as Combatant;
+            var that = obj as Combatant;
 
-            if (combatantObj == null)
+            if (that == null)
                 return false;
 
-            return Counter == combatantObj.Counter && Name == combatantObj.Name && Type == combatantObj.Type;
+            return Counter == that.Counter && Name == that.Name && Type == that.Type;
         }
     }
 }

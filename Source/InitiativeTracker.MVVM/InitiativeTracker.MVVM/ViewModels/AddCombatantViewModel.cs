@@ -9,7 +9,7 @@ namespace InitiativeTracker.MVVM.ViewModels
 
         public Combatant Combatant
         {
-            get { return _combatant; }
+            get { return _combatant.Value; }
         }
 
         public AddCombatantViewModel(Combatant combatant)
@@ -19,8 +19,8 @@ namespace InitiativeTracker.MVVM.ViewModels
 
         public string Name
         {
-            get { return _combatant.Name; }
-            set { _combatant.Name = value; }
+            get { return _combatant.Value.Name; }
+            set { _combatant.Value.Name = value; }
         }
 
         public int Modifier

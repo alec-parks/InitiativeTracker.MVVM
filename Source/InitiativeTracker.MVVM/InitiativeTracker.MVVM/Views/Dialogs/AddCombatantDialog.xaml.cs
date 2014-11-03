@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Assisticant;
+using InitiativeTracker.MVVM.Models;
 using InitiativeTracker.MVVM.ViewModels;
 
 namespace InitiativeTracker.MVVM.Views.Dialogs
@@ -14,10 +15,15 @@ namespace InitiativeTracker.MVVM.Views.Dialogs
             InitializeComponent();
         }
 
-        public AddCombatantViewModel AddCombatantViewModel
+        private AddCombatantViewModel ViewModel
         {
             get { return ForView.Unwrap<AddCombatantViewModel>(DataContext); }
 
+        }
+
+        public Combatant Combatant
+        {
+            get { return ViewModel.Combatant; }
         }
 
         private void Add_Button_Click(object sender, RoutedEventArgs e)

@@ -38,7 +38,7 @@ namespace InitiativeTracker.MVVM.Views
             if (addCombatantDiag.ShowDialog() == true)
             {
                 e.Confirmed = true;
-                e.Combatant = addCombatantDiag.AddCombatantViewModel.Combatant;
+                e.Combatant = addCombatantDiag.Combatant;
             }
         }
 
