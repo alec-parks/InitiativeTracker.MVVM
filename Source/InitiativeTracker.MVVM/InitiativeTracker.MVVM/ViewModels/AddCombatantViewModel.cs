@@ -5,7 +5,7 @@ namespace InitiativeTracker.MVVM.ViewModels
 {
     public class AddCombatantViewModel
     {
-        private Observable<Combatant> _combatant = new Observable<Combatant>();
+        private Observable<Combatant> _combatant = new Observable<Combatant>(new Combatant());
 
         public Combatant Combatant
         {
