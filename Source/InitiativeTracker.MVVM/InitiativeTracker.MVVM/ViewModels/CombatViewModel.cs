@@ -24,7 +24,7 @@ namespace InitiativeTracker.MVVM.ViewModels
             _combat = combat;
         }
 
-        public CombatantViewModel SelectedCombatant { get; set; }
+        public List<CombatantViewModel> SelectedCombatants { get; set; }
 
         public IEnumerable<CombatantViewModel> Combatants
         {
@@ -60,8 +60,14 @@ namespace InitiativeTracker.MVVM.ViewModels
                 return MakeCommand
                     .Do(() =>
                     {
-                        if (SelectedCombatant != null)
-                            _combat.AddCopy(SelectedCombatant.Combatant);
+                        if (SelectedCombatants != null)
+                        {
+                            foreach (var combatViewModel in SelectedCombatants)
+                            {
+                                _combat.AddCopy(combatViewModel.Combatant);
+                            }
+                        }
+
                     });
             }
         }
@@ -73,8 +79,14 @@ namespace InitiativeTracker.MVVM.ViewModels
                 return MakeCommand
                     .Do(() =>
                     {
-                        if(SelectedCombatant != null)
-                            _combat.RemoveCombatant(SelectedCombatant.Combatant);
+                        if (SelectedCombatants != null)
+                        {
+                            foreach (var combatantViewModel in SelectedCombatants)
+                            {
+                                _combat.RemoveCombatant(combatantViewModel.Combatant);
+                            }
+                        }
+                            
                     });
 
             }

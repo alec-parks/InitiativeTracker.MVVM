@@ -34,7 +34,7 @@ namespace InitiativeTracker.MVVM.Views
 
         private void AddCombatantEventHandler(object sender, AddCombatantEventArgs e)
         {
-            var addCombatantDiag = new AddCombatantDialog();
+            var addCombatantDiag = new AddCombatantDialog {ShowInTaskbar = false, Owner = Window.GetWindow(this)};
             if (addCombatantDiag.ShowDialog() == true)
             {
                 e.Confirmed = true;

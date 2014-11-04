@@ -8,6 +8,8 @@ namespace InitiativeTracker.MVVM.Models
     {
         private ObservableList<Combatant> _combatants = new ObservableList<Combatant>();
 
+        public bool HasStarted { get; set; }
+
         public IEnumerable<Combatant> Combatants
         {
             get { return _combatants; }
