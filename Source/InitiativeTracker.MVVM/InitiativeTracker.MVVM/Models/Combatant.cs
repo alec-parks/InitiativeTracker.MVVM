@@ -15,6 +15,19 @@ namespace InitiativeTracker.MVVM.Models
             Initiative = new Initiative();
         }
 
+        private Combatant(Combatant combatant)
+        {
+            Counter = combatant.Counter;
+            Initiative = new Initiative
+            {
+                Modifier = combatant.Initiative.Modifier,
+                Current =  combatant.Initiative.Current,
+                IsSet = combatant.Initiative.IsSet
+            };
+            Name = combatant.Name;
+            Type = combatant.Type;
+        }
+
         public int Counter
         {
             get { return _counter.Value; }
@@ -44,6 +57,12 @@ namespace InitiativeTracker.MVVM.Models
         {
             get { return _type; } 
             set { _type.Value = value; }
+        }
+
+        public Combatant Clone()
+        {
+            var dupe = new Combatant(this);
+            return dupe;
         }
 
         public override int GetHashCode()

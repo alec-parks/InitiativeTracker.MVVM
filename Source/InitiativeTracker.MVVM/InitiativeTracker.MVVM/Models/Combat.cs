@@ -27,6 +27,12 @@ namespace InitiativeTracker.MVVM.Models
             _combatants.Add(combatant);
         }
 
+        public void AddCopy(Combatant combatant)
+        {
+            var copy = combatant.Clone();
+            AddCombatant(copy);
+        }
+
         public void RemoveCombatant(Combatant combatant)
         {
             _combatants.Remove(combatant);
@@ -35,10 +41,12 @@ namespace InitiativeTracker.MVVM.Models
         private Combatant HighestCombatant(Combatant combatantToMatch)
         {
             var returnCombatant = _combatants
-                .Where(combatant => combatant.Name == combatantToMatch.Name)
+                .Where(combatant => combatant.Name == combatantToMatch.Name 
+                                 && combatant.Type == combatantToMatch.Type)
                 .OrderByDescending(combatant => combatant.Counter)
                 .FirstOrDefault();
             return returnCombatant;
         }
+
     }
 }

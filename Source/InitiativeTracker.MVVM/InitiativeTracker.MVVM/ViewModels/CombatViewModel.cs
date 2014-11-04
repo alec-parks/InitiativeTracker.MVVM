@@ -53,6 +53,19 @@ namespace InitiativeTracker.MVVM.ViewModels
             }
         }
 
+        public ICommand AddCopy
+        {
+            get
+            {
+                return MakeCommand
+                    .Do(() =>
+                    {
+                        if (SelectedCombatant != null)
+                            _combat.AddCopy(SelectedCombatant.Combatant);
+                    });
+            }
+        }
+
         public ICommand RemoveCombatant
         {
             get
