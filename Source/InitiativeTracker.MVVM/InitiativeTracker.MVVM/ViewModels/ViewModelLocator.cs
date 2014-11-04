@@ -54,5 +54,10 @@ namespace InitiativeTracker.MVVM.ViewModels
         {
             get { return ViewModel(() => new CombatViewModel(_combat)); }
         }
+
+        public object SetInitiativeViewModel
+        {
+            get { return ViewModel(() => new SetInitiativeViewModel(_combatant)); }
+        }
     }
 }
