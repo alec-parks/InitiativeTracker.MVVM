@@ -39,7 +39,8 @@ namespace InitiativeTracker.MVVM.ViewModels
             {
                 if (_addCopyCommand == null)
                 {
-                    _addCopyCommand = new RelayCommand<IEnumerable<object>>(AddCopyExecute);
+                    _addCopyCommand = new RelayCommand<IEnumerable<object>>(AddCopyExecute
+                        ,AddCopyCanExecute);
                 }
 
                 return _addCopyCommand;
@@ -49,6 +50,11 @@ namespace InitiativeTracker.MVVM.ViewModels
         public CombatViewModel(Combat combat)
         {
             _combat = combat;
+        }
+
+        public bool HasStarted
+        {
+            get { return _combat.HasStarted; }
         }
 
         public IEnumerable<CombatantViewModel> Combatants
@@ -104,8 +110,8 @@ namespace InitiativeTracker.MVVM.ViewModels
         private bool AddCopyCanExecute(IEnumerable<object> selectedItems)
         {
             var selectedCombatants = GetSelectedCombatants(selectedItems);
-            if (selectedCombatants.Select(combatant => combatant.Type == CombatantType.Player).Any() 
-                || !selectedItems.Any())
+            if (!selectedCombatants.Select(combatant => combatant.Type == CombatantType.Player).Any() 
+                && !selectedItems.Any())
             {
                 return false;
             }

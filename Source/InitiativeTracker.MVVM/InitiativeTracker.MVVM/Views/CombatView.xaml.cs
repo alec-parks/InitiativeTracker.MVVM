@@ -45,6 +45,7 @@ namespace InitiativeTracker.MVVM.Views
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ViewModel.RemoveCombatant.RaiseCanExecuteChanged();
+            ViewModel.AddCopy.RaiseCanExecuteChanged();
         }
     }
 }
