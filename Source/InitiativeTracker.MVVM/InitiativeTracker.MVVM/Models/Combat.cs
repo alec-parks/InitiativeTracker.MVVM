@@ -17,7 +17,7 @@ namespace InitiativeTracker.MVVM.Models
 
         public void AddCombatant(Combatant combatant)
         {
-            var highCombatant = HighestCombatant(combatant);
+            var highCombatant = FindHighestCombatant(combatant);
             if (highCombatant != null)
             {
                 if (highCombatant.Counter == 0)
@@ -40,7 +40,7 @@ namespace InitiativeTracker.MVVM.Models
             _combatants.Remove(combatant);
         }
 
-        private Combatant HighestCombatant(Combatant combatantToMatch)
+        private Combatant FindHighestCombatant(Combatant combatantToMatch)
         {
             var returnCombatant = _combatants
                 .Where(combatant => combatant.Name == combatantToMatch.Name 
