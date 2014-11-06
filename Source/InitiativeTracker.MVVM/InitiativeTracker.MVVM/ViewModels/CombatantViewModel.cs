@@ -17,6 +17,8 @@ namespace InitiativeTracker.MVVM.ViewModels
             _combatant = combatant;
         }
 
+        public bool IsSelected { get; set; }
+
         //Display name
         public string DisplayName
         {

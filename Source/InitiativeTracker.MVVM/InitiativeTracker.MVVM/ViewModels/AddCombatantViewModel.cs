@@ -34,10 +34,5 @@ namespace InitiativeTracker.MVVM.ViewModels
             get { return _combatant.Value.Type; }
             set { _combatant.Value.Type = value; }
         }
-
-        public int Counter
-        {
-            set { _combatant.Value.Counter = value; }
-        }
     }
 }

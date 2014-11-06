@@ -14,17 +14,10 @@ namespace InitiativeTracker.MVVM.ViewModels
 
         public event Action<object, AddCombatantEventArgs> AddCombatantEvent;
 
-        public Combat Combat
-        {
-            get { return _combat; }
-        }
-
         public CombatViewModel(Combat combat)
         {
             _combat = combat;
         }
-
-        public List<CombatantViewModel> SelectedCombatants { get; set; }
 
         public IEnumerable<CombatantViewModel> Combatants
         {
@@ -50,45 +43,6 @@ namespace InitiativeTracker.MVVM.ViewModels
                             _combat.AddCombatant(args.Combatant);
                         }
                     });
-            }
-        }
-
-        public ICommand AddCopy
-        {
-            get
-            {
-                return MakeCommand
-                    .Do(() =>
-                    {
-                        if (SelectedCombatants != null)
-                        {
-                            foreach (var combatViewModel in SelectedCombatants)
-                            {
-                                _combat.AddCopy(combatViewModel.Combatant);
-                            }
-                        }
-
-                    });
-            }
-        }
-
-        public ICommand RemoveCombatant
-        {
-            get
-            {
-                return MakeCommand
-                    .Do(() =>
-                    {
-                        if (SelectedCombatants != null)
-                        {
-                            foreach (var combatantViewModel in SelectedCombatants)
-                            {
-                                _combat.RemoveCombatant(combatantViewModel.Combatant);
-                            }
-                        }
-                            
-                    });
-
             }
         }
     }
