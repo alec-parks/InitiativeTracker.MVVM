@@ -15,6 +15,8 @@ namespace InitiativeTracker.MVVM.ViewModels
 
         private RelayCommand<IEnumerable<object>> _removeCombatantCommand;
 
+        private RelayCommand<IEnumerable<object>> _addCopyCommand;
+
         public event Action<object, AddCombatantEventArgs> AddCombatantEvent;
 
         public RelayCommand<IEnumerable<object>> RemoveCombatant
@@ -23,10 +25,24 @@ namespace InitiativeTracker.MVVM.ViewModels
             {
                 if (_removeCombatantCommand == null)
                 {
-                    _removeCombatantCommand = new RelayCommand<IEnumerable<object>>(RemoveCombatantExecute);
+                    _removeCombatantCommand = new RelayCommand<IEnumerable<object>>(RemoveCombatantExecute
+                        ,RemoveCombatantCanExecute);
                 }
                
                 return _removeCombatantCommand;
+            }
+        }
+
+        public RelayCommand<IEnumerable<object>> AddCopy
+        {
+            get
+            {
+                if (_addCopyCommand == null)
+                {
+                    _addCopyCommand = new RelayCommand<IEnumerable<object>>(AddCopyExecute);
+                }
+
+                return _addCopyCommand;
             }
         }
 
@@ -69,6 +85,31 @@ namespace InitiativeTracker.MVVM.ViewModels
             {
                 _combat.RemoveCombatant(combatant);
             }
+        }
+
+        private void AddCopyExecute(IEnumerable<object> selectedItems)
+        {
+            var combatants = GetSelectedCombatants(selectedItems);
+            foreach (var combatant in combatants)
+            {
+                _combat.AddCopy(combatant);
+            }
+        }
+
+        private bool RemoveCombatantCanExecute(IEnumerable<object> selectedItems)
+        {
+            return selectedItems.Any();
+        }
+
+        private bool AddCopyCanExecute(IEnumerable<object> selectedItems)
+        {
+            var selectedCombatants = GetSelectedCombatants(selectedItems);
+            if (selectedCombatants.Select(combatant => combatant.Type == CombatantType.Player).Any() 
+                || !selectedItems.Any())
+            {
+                return false;
+            }
+            return true;
         }
 
         private IEnumerable<Combatant> GetSelectedCombatants(IEnumerable<object> wrappedCombatants)

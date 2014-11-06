@@ -21,7 +21,7 @@
             <RowDefinition Height="121*"/>
             <RowDefinition Height="29*"/>
         </Grid.RowDefinitions>
-        <ListBox Name="CombatanstListBox" Grid.ColumnSpan="5" ItemsSource="{Binding Combatants}" Margin="0,0,0,5" SelectionMode="Extended">
+        <ListBox Name="CombatanstListBox" Grid.ColumnSpan="5" ItemsSource="{Binding Combatants}" Margin="0,0,0,5" SelectionMode="Extended" SelectionChanged="ListBox_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <views:CombatantView />
