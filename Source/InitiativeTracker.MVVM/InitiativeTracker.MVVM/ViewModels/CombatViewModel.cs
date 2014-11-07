@@ -57,6 +57,11 @@ namespace InitiativeTracker.MVVM.ViewModels
             get { return _combat.HasStarted; }
         }
 
+        public bool HasNotStarted
+        {
+            get { return !_combat.HasStarted; }
+        }
+
         public IEnumerable<CombatantViewModel> Combatants
         {
             get { return _combat.Combatants.Select(combatant => new CombatantViewModel(combatant)); }
