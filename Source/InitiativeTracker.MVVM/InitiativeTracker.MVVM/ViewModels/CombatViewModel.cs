@@ -84,6 +84,19 @@ namespace InitiativeTracker.MVVM.ViewModels
             }
         }
 
+        public ICommand StartCombat
+        {
+            get { 
+                return MakeCommand
+                .When(() => !HasStarted)
+                .Do(() => _combat.StartCombat()); }
+        }
+
+        public ICommand EndCombat
+        {
+            get { return MakeCommand.When(() => HasStarted).Do(() => _combat.EndCombat()); }
+        }
+
         private void RemoveCombatantExecute(IEnumerable<object> selectedItems)
         {
             var combatants = GetSelectedCombatants(selectedItems);

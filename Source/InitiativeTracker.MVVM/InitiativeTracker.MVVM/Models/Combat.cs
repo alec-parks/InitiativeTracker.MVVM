@@ -50,5 +50,20 @@ namespace InitiativeTracker.MVVM.Models
             return returnCombatant;
         }
 
+        public void StartCombat()
+        {
+            foreach (var combatant in _combatants.Where(combatant => combatant.Type == CombatantType.Monster))
+            {
+                combatant.Initiative.Roll();
+            }
+
+            HasStarted = true;
+        }
+
+        public void EndCombat()
+        {
+            HasStarted = false;
+        }
+
     }
 }
