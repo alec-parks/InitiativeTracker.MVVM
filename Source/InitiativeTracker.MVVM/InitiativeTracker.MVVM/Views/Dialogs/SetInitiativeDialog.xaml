@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:views="clr-namespace:InitiativeTracker.MVVM.Views"
         DataContext="{Binding SetInitiativeViewModel, Source={StaticResource Locator}}"
-        Title="SetInitiativeDialog" Height="300" Width="300">
+        Title="SetInitiativeDialog" Height="300" Width="300" ResizeMode="NoResize">
     <Grid>
     	<Grid.ColumnDefinitions>
     		<ColumnDefinition/>
@@ -13,7 +13,7 @@
     		<RowDefinition Height="5*"/>
     		<RowDefinition/>
     	</Grid.RowDefinitions>
-        <ListBox Margin="0,0,0,5" Grid.ColumnSpan="2">
+        <ListBox Margin="0,0,0,5" ItemsSource="{Binding Combatant}"  Grid.ColumnSpan="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <views:SetInitiativeView />
