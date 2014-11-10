@@ -4,16 +4,16 @@ namespace InitiativeTracker.MVVM.ViewModels
 {
     public class SetInitiativeViewModel
     {
-        private List<CombatantInitiativeViewModel> _combatants = new List<CombatantInitiativeViewModel>();
+        private List<CombatantInitiativeViewModel> _combatantInitiativeViewModels = new List<CombatantInitiativeViewModel>();
 
-        public SetInitiativeViewModel(List<CombatantInitiativeViewModel> combatants)
+        public SetInitiativeViewModel(List<CombatantInitiativeViewModel> combatantInitiativeViewModels)
         {
-            _combatants = combatants;
+            _combatantInitiativeViewModels = combatantInitiativeViewModels;
         }
 
         public IEnumerable<CombatantInitiativeViewModel> CombatantInitiativeViewModels
         {
-            get { return _combatants; }
+            get { return _combatantInitiativeViewModels; }
         }
     }
 }
