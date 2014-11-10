@@ -19,6 +19,8 @@ namespace InitiativeTracker.MVVM.ViewModels
 
         public event Action<object, AddCombatantEventArgs> AddCombatantEvent;
 
+        public event Action<object, SetInitiativeEventArgs> SetInitiativeEvent;
+
         public RelayCommand<IEnumerable<object>> RemoveCombatant
         {
             get 
@@ -94,7 +96,18 @@ namespace InitiativeTracker.MVVM.ViewModels
             get { 
                 return MakeCommand
                 .When(() => !HasStarted)
-                .Do(() => _combat.StartCombat()); }
+                .Do(StartCombatControl); }
+        }
+
+        public void StartCombatControl()
+        {
+            var args = new SetInitiativeEventArgs();
+
+            if (SetInitiativeEvent != null)
+            {
+                SetInitiativeEvent(this, args);
+            }
+            if()
         }
 
         public ICommand EndCombat

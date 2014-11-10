@@ -42,6 +42,9 @@ namespace InitiativeTracker.MVVM.Views
             }
         }
 
+        private void StartCombatEventHandler(object sender, SetInitiativeEventArgs e)
+        { }
+
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ViewModel.RemoveCombatant.RaiseCanExecuteChanged();
