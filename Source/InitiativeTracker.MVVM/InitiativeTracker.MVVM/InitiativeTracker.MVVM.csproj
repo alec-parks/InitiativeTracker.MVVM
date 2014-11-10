@@ -76,6 +76,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\EventArgs\SetInitiativeEventArgs.cs" />
+    <Compile Include="ViewModels\CombatantInitiativeViewModel.cs" />
     <Compile Include="ViewModels\SetInitiativeViewModel.cs" />
     <Compile Include="Views\Dialogs\AddCombatantDialog.xaml.cs">
       <DependentUpon>AddCombatantDialog.xaml</DependentUpon>
@@ -96,8 +97,8 @@
     <Compile Include="Views\Dialogs\SetInitiativeDialog.xaml.cs">
       <DependentUpon>SetInitiativeDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SetInitiativeView.xaml.cs">
-      <DependentUpon>SetInitiativeView.xaml</DependentUpon>
+    <Compile Include="Views\CombatantInitiativeView.xaml.cs">
+      <DependentUpon>CombatantInitiativeView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Dialogs\AddCombatantDialog.xaml">
       <SubType>Designer</SubType>
@@ -127,7 +128,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SetInitiativeView.xaml">
+    <Page Include="Views\CombatantInitiativeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

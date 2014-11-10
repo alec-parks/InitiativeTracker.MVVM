@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace InitiativeTracker.MVVM.Views
 {
     /// <summary>
-    /// Interaction logic for SetInitiativeView.xaml
+    /// Interaction logic for CombatantInitiativeView.xaml
     /// </summary>
-    public partial class SetInitiativeView : UserControl
+    public partial class CombatantInitiativeView : UserControl
     {
-        public SetInitiativeView()
+        public CombatantInitiativeView()
         {
             InitializeComponent();
         }

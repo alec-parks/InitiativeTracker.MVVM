@@ -1,47 +1,19 @@
-﻿using System.Windows.Input;
-using Assisticant;
-using Assisticant.Fields;
-using InitiativeTracker.MVVM.Models;
+﻿using System.Collections.Generic;
 
 namespace InitiativeTracker.MVVM.ViewModels
 {
     public class SetInitiativeViewModel
     {
-        private Observable<Combatant> _combatant = new Observable<Combatant>();
+        private List<CombatantInitiativeViewModel> _combatants = new List<CombatantInitiativeViewModel>();
 
-        public Combatant Combatant
+        public SetInitiativeViewModel(List<CombatantInitiativeViewModel> combatants)
         {
-            get { return _combatant; }
+            _combatants = combatants;
         }
 
-        public SetInitiativeViewModel(Combatant combatant)
+        public IEnumerable<CombatantInitiativeViewModel> CombatantInitiativeViewModels
         {
-            _combatant.Value = combatant;
-        }
-
-        public string DisplayName
-        {
-            get { return _combatant.Value.DisplayName; }
-        }
-
-        public int Modifier
-        {
-            get { return _combatant.Value.Initiative.Modifier; }
-        }
-
-        public int Current
-        {
-            get { return _combatant.Value.Initiative.Current; }
-            set { _combatant.Value.Initiative.Current = value; }
-        }
-
-        public ICommand RollInitiative
-        {
-            get
-            {
-                return MakeCommand
-                    .Do(() => _combatant.Value.Initiative.Roll());
-            }
+            get { return _combatants; }
         }
     }
 }
