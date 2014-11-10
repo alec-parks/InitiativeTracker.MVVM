@@ -1,4 +1,5 @@
-﻿using Assisticant;
+﻿using System.Linq;
+using Assisticant;
 using InitiativeTracker.MVVM.Models;
 
 namespace InitiativeTracker.MVVM.ViewModels
@@ -58,6 +59,11 @@ namespace InitiativeTracker.MVVM.ViewModels
         public object CombatantInitiativeViewModel
         {
             get { return ViewModel(() => new CombatantInitiativeViewModel(_combatant)); }
+        }
+
+        public object SetInitiativeViewModel
+        {
+            get { return ViewModel(() => new SetInitiativeViewModel(_combat.Combatants)); }
         }
     }
 }

@@ -6,9 +6,9 @@ namespace InitiativeTracker.MVVM.ViewModels
 {
     public class SetInitiativeViewModel
     {
-        private readonly List<Combatant> _combatants = new List<Combatant>();
+        private readonly IEnumerable<Combatant> _combatants;
 
-        public SetInitiativeViewModel(List<Combatant> combatants)
+        public SetInitiativeViewModel(IEnumerable<Combatant> combatants)
         {
             _combatants = combatants;
         }
