@@ -101,13 +101,27 @@ namespace InitiativeTracker.MVVM.ViewModels
 
         public void StartCombatControl()
         {
-            var args = new SetInitiativeEventArgs();
+            var combatantList = _combat.Combatants
+                .Where(combatants => combatants.Type == CombatantType.Player).ToList();
+
+            var args = new SetInitiativeEventArgs
+            {
+                SetInitiativeViewModel = new SetInitiativeViewModel(combatantList)
+            };
 
             if (SetInitiativeEvent != null)
             {
                 SetInitiativeEvent(this, args);
             }
-            if()
+
+            if (args.Confirmed)
+            {
+                _combat.StartCombat();
+                foreach (var combatant in combatantList)
+                {
+                    combatant.Initiative.IsSet = true;
+                }
+            }
         }
 
         public ICommand EndCombat
@@ -143,11 +157,13 @@ namespace InitiativeTracker.MVVM.ViewModels
         private bool AddCopyCanExecute(IEnumerable<object> selectedItems)
         {
             var selectedCombatants = GetSelectedCombatants(selectedItems);
+
             if (!selectedCombatants.Select(combatant => combatant.Type == CombatantType.Player).Any() 
                 && !selectedItems.Any())
             {
                 return false;
             }
+
             return true;
         }
 

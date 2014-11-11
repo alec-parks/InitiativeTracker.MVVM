@@ -25,11 +25,13 @@ namespace InitiativeTracker.MVVM.Views
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             ViewModel.AddCombatantEvent += AddCombatantEventHandler;
+            ViewModel.SetInitiativeEvent += StartCombatEventHandler;
         }
 
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
             ViewModel.AddCombatantEvent -= AddCombatantEventHandler;
+            ViewModel.SetInitiativeEvent -= StartCombatEventHandler;
         }
 
         private void AddCombatantEventHandler(object sender, AddCombatantEventArgs e)
@@ -43,7 +45,19 @@ namespace InitiativeTracker.MVVM.Views
         }
 
         private void StartCombatEventHandler(object sender, SetInitiativeEventArgs e)
-        { }
+        {
+            var setInitiativeDiag = new SetInitiativeDialog
+            {
+                ShowInTaskbar = false,
+                Owner = Window.GetWindow(this),
+                DataContext = e.SetInitiativeViewModel
+            };
+
+            if (setInitiativeDiag.ShowDialog() == true)
+            {
+                e.Confirmed = true;
+            }
+        }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
