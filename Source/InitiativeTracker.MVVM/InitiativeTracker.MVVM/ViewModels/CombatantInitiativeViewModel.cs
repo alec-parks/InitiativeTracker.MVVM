@@ -11,7 +11,7 @@ namespace InitiativeTracker.MVVM.ViewModels
 
         public Combatant Combatant
         {
-            get { return _combatant; }
+            get { return _combatant.Value; }
         }
 
         public CombatantInitiativeViewModel(Combatant combatant)

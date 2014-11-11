@@ -6,8 +6,13 @@ namespace InitiativeTracker.MVVM.Models
     {
         private  Observable<int> _current = new Observable<int>(0);
         private Observable<int> _modifier = new Observable<int>(0);
+        private Observable<bool> _isSet = new Observable<bool>(false);
 
-        public bool IsSet { get; set; }
+        public bool IsSet
+        {
+            get { return _isSet.Value; } 
+            set { _isSet.Value = value; }
+        }
 
         public int Current
         {
