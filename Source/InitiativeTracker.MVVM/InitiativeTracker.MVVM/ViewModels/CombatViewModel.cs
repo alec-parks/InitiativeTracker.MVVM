@@ -158,8 +158,8 @@ namespace InitiativeTracker.MVVM.ViewModels
         {
             var selectedCombatants = GetSelectedCombatants(selectedItems);
 
-            if (!selectedCombatants.Select(combatant => combatant.Type == CombatantType.Player).Any() 
-                && !selectedItems.Any())
+            if (selectedCombatants.Where(combatant => combatant.Type == CombatantType.Player).Any() 
+                || !selectedItems.Any())
             {
                 return false;
             }
