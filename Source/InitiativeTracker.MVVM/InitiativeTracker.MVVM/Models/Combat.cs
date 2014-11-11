@@ -1,14 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Assisticant.Collections;
+using Assisticant.Fields;
 
 namespace InitiativeTracker.MVVM.Models
 {
     public class Combat
     {
         private ObservableList<Combatant> _combatants = new ObservableList<Combatant>();
+        private Observable<bool> _hasStarted = new Observable<bool>(false);
 
-        public bool HasStarted { get; set; }
+        public bool HasStarted
+        {
+            get { return _hasStarted.Value; } 
+            set { _hasStarted.Value = value; }
+        }
 
         public IEnumerable<Combatant> Combatants
         {
