@@ -1,4 +1,7 @@
-﻿using Assisticant.Fields;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Assisticant.Fields;
 using InitiativeTracker.MVVM.Models;
 
 namespace InitiativeTracker.MVVM.ViewModels
@@ -33,6 +36,15 @@ namespace InitiativeTracker.MVVM.ViewModels
         {
             get { return _combatant.Value.Type; }
             set { _combatant.Value.Type = value; }
+        }
+
+        public IEnumerable<CombatantType> CombatantTypes
+        {
+            get
+            {
+                return Enum.GetValues(typeof (CombatantType))
+                    .Cast<CombatantType>();
+            }
         }
     }
 }

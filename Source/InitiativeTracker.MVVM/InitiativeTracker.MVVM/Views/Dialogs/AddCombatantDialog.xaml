@@ -3,35 +3,55 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:model="clr-namespace:InitiativeTracker.MVVM.Models"
         DataContext="{Binding AddCombatantViewModel, Source={StaticResource Locator}}"
-        Title="AddCombatantDialog"  Width="265.006" Height="275.311">
+        Title="AddCombatantDialog" ResizeMode="NoResize" Width="500" SizeToContent="Height"
+        FontSize="16">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150*" />
-            <ColumnDefinition Width="150*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="22*" />
-            <RowDefinition Height="27*" />
-            <RowDefinition Height="27*" />
-            <RowDefinition Height="24*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="Combatant Name" HorizontalAlignment="Right"
-                   VerticalAlignment="Center" Margin="0,0,5,0" />
-        <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="Combatant Type" HorizontalAlignment="Right"
-                   VerticalAlignment="Center" Margin="0,0,5,0" />
-        <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="Initiative Modifier" HorizontalAlignment="Right"
-                   VerticalAlignment="Center" Margin="0,0,5,0" />
-        <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay}" HorizontalAlignment="Left"
-                 VerticalAlignment="Center" Margin="5.001,15.053,0,15.053" Width="107.333" />
-        <RadioButton Content="Player" Grid.Column="1"
-                     IsChecked="{Binding Path=Type, Mode=TwoWay,ConverterParameter={x:Static model:CombatantType.Player},Converter={StaticResource CombatantToBool}}" Grid.Row="1"
-                     GroupName="CombatantType" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="9.999,11.019,64.343,36.92" />
-        <RadioButton Content="Monster" Grid.Column="1"
-                     IsChecked="{Binding Path=Type, Mode=TwoWay, ConverterParameter={x:Static model:CombatantType.Monster},Converter={StaticResource CombatantToBool}}" Grid.Row="1" GroupName="CombatantType" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="9.999,37.939,52.126,10" />
-        <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Modifier, Mode=TwoWay}" HorizontalAlignment="Left"
-                 VerticalAlignment="Center" Margin="5,0,0,0" />
-        <Button Content="Add Combatant" Grid.Row="3" Margin="10,10,5,10" IsDefault="True" Click="Add_Button_Click"/>
-        <Button Content="IT'S ALL WRONG!" Grid.Column="1" Grid.Row="3" Margin="5,10,10,10" IsCancel="True" Click="Cancel_Button_Click"/>
+        
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Name:" HorizontalAlignment="Right" VerticalAlignment="Center" 
+                   Margin="10 10 5 5"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"
+                 Text="{Binding Name, Mode=TwoWay}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                 Margin="5 10 10 5"/>
+        
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Type:" HorizontalAlignment="Right" VerticalAlignment="Center" 
+                   Margin="10 5 5 5"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Margin="5 5 5 5"
+                  ItemsSource="{Binding CombatantTypes}"
+                  SelectedItem="{Binding Type, Mode=TwoWay}"/>
+        
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="Initiative Modifier:" HorizontalAlignment="Right" VerticalAlignment="Center" 
+                   Margin="5 5 5 5"/>
+        <TextBox Grid.Row="1" Grid.Column="3"
+                 Text="{Binding Modifier, Mode=TwoWay}" 
+                 HorizontalAlignment="Stretch" VerticalAlignment="Center" 
+                 HorizontalContentAlignment="Center" Margin="5 5 10 5" />
+        
+        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Margin="10 5 10 10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
+            <Button Content="Make It So" Grid.Column="0" Margin="0 0 5 0" Padding="5"
+                    IsDefault="True" Click="Add_Button_Click" />
+
+            <Button Content="IT'S ALL WRONG!" Grid.Column="1" Margin="5 0 0 0" Padding="5"
+                    IsCancel="True" Click="Cancel_Button_Click" />
+        </Grid>
+        
     </Grid>
 </Window>
