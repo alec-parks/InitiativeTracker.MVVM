@@ -52,7 +52,6 @@ namespace InitiativeTracker.MVVM.Views
             {
                 ShowInTaskbar = false,
                 Owner = Window.GetWindow(this),
-                DataContext = e.SetInitiativeViewModel
             };
 
             if (setInitiativeDiag.ShowDialog() == true)

@@ -76,6 +76,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\EventArgs\EndCombatEventArgs.cs" />
     <Compile Include="ViewModels\EventArgs\SetInitiativeEventArgs.cs" />
     <Compile Include="ViewModels\CombatantInitiativeViewModel.cs" />
     <Compile Include="ViewModels\SetInitiativeViewModel.cs" />

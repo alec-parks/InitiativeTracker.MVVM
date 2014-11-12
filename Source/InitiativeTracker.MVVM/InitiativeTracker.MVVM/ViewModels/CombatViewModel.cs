@@ -116,10 +116,7 @@ namespace InitiativeTracker.MVVM.ViewModels
             var combatantList = _combat.Combatants
                 .Where(combatants => combatants.Type == CombatantType.Player).ToList();
 
-            var args = new SetInitiativeEventArgs
-            {
-                SetInitiativeViewModel = new SetInitiativeViewModel(combatantList)
-            };
+            var args = new SetInitiativeEventArgs();
 
             if (SetInitiativeEvent != null)
             {
