@@ -21,6 +21,8 @@ namespace InitiativeTracker.MVVM.ViewModels
 
         public event Action<object, SetInitiativeEventArgs> SetInitiativeEvent;
 
+        public event Action<object, EndCombatEventArgs> EndCombatEvent;
+
         public RelayCommand<IEnumerable<object>> RemoveCombatant
         {
             get 
@@ -99,6 +101,16 @@ namespace InitiativeTracker.MVVM.ViewModels
                 .Do(StartCombatControl); }
         }
 
+        public ICommand EndCombat
+        {
+            get
+            {
+                return MakeCommand
+                    .When(() => HasStarted)
+                    .Do(EndCombatControl);
+            }
+        }
+
         public void StartCombatControl()
         {
             var combatantList = _combat.Combatants
@@ -124,11 +136,26 @@ namespace InitiativeTracker.MVVM.ViewModels
             }
         }
 
-        public ICommand EndCombat
+        public void EndCombatControl()
         {
-            get { return MakeCommand
-                .When(() => HasStarted)
-                .Do(() => _combat.EndCombat()); }
+            var args = new EndCombatEventArgs();
+
+            if (EndCombatEvent != null)
+            {
+                EndCombatEvent(this, args);
+            }
+
+            if (args.Confirmed)
+            {
+                var monsters = _combat.Combatants
+                    .Where(combatants => combatants.Type == CombatantType.Monster).ToList();
+
+                foreach (var monster in monsters)
+                {
+                    _combat.RemoveCombatant(monster);
+                }
+                _combat.EndCombat();
+            }
         }
 
         private void RemoveCombatantExecute(IEnumerable<object> selectedItems)
@@ -158,7 +185,7 @@ namespace InitiativeTracker.MVVM.ViewModels
         {
             var selectedCombatants = GetSelectedCombatants(selectedItems);
 
-            if (selectedCombatants.Where(combatant => combatant.Type == CombatantType.Player).Any() 
+            if (selectedCombatants.Any(combatant => combatant.Type == CombatantType.Player) 
                 || !selectedItems.Any())
             {
                 return false;

@@ -71,5 +71,15 @@ namespace InitiativeTracker.MVVM.Models
             HasStarted = false;
         }
 
+        public void EndCombat(IEnumerable<Combatant> combatants)
+        {
+            foreach (var combatant in combatants)
+            {
+                RemoveCombatant(combatant);
+            }
+
+            HasStarted = false;
+        }
+
     }
 }

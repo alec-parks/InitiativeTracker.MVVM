@@ -24,14 +24,16 @@ namespace InitiativeTracker.MVVM.Views
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            ViewModel.AddCombatantEvent += AddCombatantEventHandler;
-            ViewModel.SetInitiativeEvent += StartCombatEventHandler;
+            ViewModel.AddCombatantEvent     += AddCombatantEventHandler;
+            ViewModel.SetInitiativeEvent    += StartCombatEventHandler;
+            ViewModel.EndCombatEvent        += EndCombatEventHandler; 
         }
 
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
-            ViewModel.AddCombatantEvent -= AddCombatantEventHandler;
-            ViewModel.SetInitiativeEvent -= StartCombatEventHandler;
+            ViewModel.AddCombatantEvent     -= AddCombatantEventHandler;
+            ViewModel.SetInitiativeEvent    -= StartCombatEventHandler;
+            ViewModel.EndCombatEvent        -= EndCombatEventHandler;
         }
 
         private void AddCombatantEventHandler(object sender, AddCombatantEventArgs e)
@@ -58,6 +60,9 @@ namespace InitiativeTracker.MVVM.Views
                 e.Confirmed = true;
             }
         }
+
+        private void EndCombatEventHandler(object sender, EndCombatEventArgs e)
+        { }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
