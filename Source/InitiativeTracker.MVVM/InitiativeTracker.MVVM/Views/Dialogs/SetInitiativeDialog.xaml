@@ -5,16 +5,6 @@
         DataContext="{Binding SetInitiativeViewModel, Source={StaticResource Locator}}"
         Title="SetInitiativeDialog" Height="300" SizeToContent="Width"  ResizeMode="NoResize" ShowInTaskbar="False">
     <Grid>
-    	<Grid.ColumnDefinitions>
-    		<ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-    	</Grid.ColumnDefinitions>
-    	<Grid.RowDefinitions>
-    		<RowDefinition Height="*"/>
-    		<RowDefinition Height="Auto"/>
-    	</Grid.RowDefinitions>
-        <views:SetInitiativeView Height="Auto"  Grid.Row="0"  Grid.ColumnSpan="2" Margin="0,0,0,5"/>
-        <Button Content="Start Combat!" IsDefault="True"  Grid.Row="1" Grid.Column="0" Margin="10,5,5,10" Click="Start_Combat_Click"/>
-        <Button Content="No sir, I don't like it" IsCancel="True"  Grid.Column="1" Grid.Row="1" Margin="5,5,10,10" Click="Cancel_Click"/>
+        <views:SetInitiativeView />
     </Grid>
 </Window>

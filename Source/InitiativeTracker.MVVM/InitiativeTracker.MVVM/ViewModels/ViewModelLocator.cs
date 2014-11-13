@@ -63,7 +63,7 @@ namespace InitiativeTracker.MVVM.ViewModels
 
         public object SetInitiativeViewModel
         {
-            get { return ViewModel(() => new SetInitiativeViewModel(_combat.Combatants.Where(combatant => combatant.Type == CombatantType.Player))); }
+            get { return ViewModel(() => new SetInitiativeViewModel(_combat); }
         }
     }
 }
