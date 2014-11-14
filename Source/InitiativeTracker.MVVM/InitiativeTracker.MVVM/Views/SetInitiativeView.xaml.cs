@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace InitiativeTracker.MVVM.Views
 {
@@ -10,6 +11,13 @@ namespace InitiativeTracker.MVVM.Views
         public SetInitiativeView()
         {
             InitializeComponent();
+        }
+
+        //HACK Maybe... ?
+        private void Close(object sender, RoutedEventArgs e)
+        {
+            var window = Window.GetWindow(this);
+            if (window != null) window.Close();
         }
     }
 }

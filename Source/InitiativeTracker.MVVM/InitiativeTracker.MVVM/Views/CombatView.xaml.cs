@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
 using Assisticant;
 using InitiativeTracker.MVVM.ViewModels;
 using InitiativeTracker.MVVM.ViewModels.EventArgs;
@@ -48,16 +50,17 @@ namespace InitiativeTracker.MVVM.Views
 
         private void StartCombatEventHandler(object sender, SetInitiativeEventArgs e)
         {
-            var setInitiativeDiag = new SetInitiativeDialog
-            {
-                ShowInTaskbar = false,
-                Owner = Window.GetWindow(this),
-            };
+            var dispatcher = Dispatcher.CurrentDispatcher;
 
-            if (setInitiativeDiag.ShowDialog() == true)
+            dispatcher.BeginInvoke((Action)(() =>
             {
-                e.Confirmed = true;
-            }
+                var setInitiativeDiag = new SetInitiativeDialog
+                {
+                    ShowInTaskbar = false,
+                    Owner = Window.GetWindow(this),
+                };
+                setInitiativeDiag.ShowDialog();
+            }));
         }
 
         private void EndCombatEventHandler(object sender, EndCombatEventArgs e)
