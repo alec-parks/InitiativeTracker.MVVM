@@ -12,9 +12,9 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <ListBox ItemsSource="{Binding CombatantInitiativeViewModels}" Grid.Row="0" HorizontalContentAlignment="Stretch" Margin="0,0,0,5" Grid.ColumnSpan="2">
             <ListBox.ItemTemplate>
@@ -44,6 +44,6 @@
             </Button.Background>
         </Button>
         <Button Content="Make It So" Command="{Binding MakeItSo}" IsDefault="True" Grid.Column="0" Grid.Row="2" Margin="10,5,5,10" Click="Close"/>
-        <Button Content="About Face" Command="{Binding Abort}" IsCancel="True" Grid.Column="1" Grid.Row="2" Margin="5,5,10,10" Click="Close"/>
+        <Button Content="Abort" Command="{Binding Abort}" IsCancel="True" Grid.Column="1" Grid.Row="2" Margin="5,5,10,10" Click="Close"/>
     </Grid>
 </UserControl>

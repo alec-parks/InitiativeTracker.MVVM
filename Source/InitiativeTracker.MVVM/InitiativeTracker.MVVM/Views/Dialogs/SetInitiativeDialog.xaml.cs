@@ -11,15 +11,5 @@ namespace InitiativeTracker.MVVM.Views.Dialogs
         {
             InitializeComponent();
         }
-
-        private void Start_Combat_Click(object sender, RoutedEventArgs e)
-        {
-            DialogResult = true;
-        }
-
-        private void Cancel_Click(object sender, RoutedEventArgs e)
-        {
-            DialogResult = false;
-        }
     }
 }
