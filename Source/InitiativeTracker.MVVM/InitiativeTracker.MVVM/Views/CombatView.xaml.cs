@@ -64,7 +64,19 @@ namespace InitiativeTracker.MVVM.Views
         }
 
         private void EndCombatEventHandler(object sender, EndCombatEventArgs e)
-        { }
+        {
+            var dispatcher = Dispatcher.CurrentDispatcher;
+
+            dispatcher.BeginInvoke((Action) (() =>
+            {
+                var endCombatDiag = new EndCombatDialog()
+                {
+                    ShowInTaskbar = false,
+                    Owner = Window.GetWindow(this),
+                };
+                endCombatDiag.ShowDialog();
+            }));
+        }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

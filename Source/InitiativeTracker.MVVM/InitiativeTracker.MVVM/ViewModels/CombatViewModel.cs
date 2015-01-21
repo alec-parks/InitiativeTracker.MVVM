@@ -147,11 +147,16 @@ namespace InitiativeTracker.MVVM.ViewModels
                 var monsters = _combat.Combatants
                     .Where(combatants => combatants.Type == CombatantType.Monster).ToList();
 
-                foreach (var monster in monsters)
-                {
-                    _combat.RemoveCombatant(monster);
-                }
+                _combat.EndCombat(monsters);
+
+            }
+            else
+            {
                 _combat.EndCombat();
+            }
+            foreach (var combatant in _combat.Combatants)
+            {
+                combatant.Initiative.IsSet = false;
             }
         }
 

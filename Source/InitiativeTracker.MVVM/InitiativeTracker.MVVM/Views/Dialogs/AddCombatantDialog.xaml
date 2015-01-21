@@ -1,7 +1,6 @@
 ﻿<Window x:Class="InitiativeTracker.MVVM.Views.Dialogs.AddCombatantDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:model="clr-namespace:InitiativeTracker.MVVM.Models"
         DataContext="{Binding AddCombatantViewModel, Source={StaticResource Locator}}"
         Title="AddCombatantDialog" ResizeMode="NoResize" Width="500" SizeToContent="Height"
         FontSize="16">
