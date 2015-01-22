@@ -64,6 +64,8 @@ namespace InitiativeTracker.MVVM.Models
         public void EndCombat()
         {
             HasStarted = false;
+
+            UnsetInitiative(Combatants);
         }
 
         public void EndCombat(IEnumerable<Combatant> combatants)
@@ -72,8 +74,19 @@ namespace InitiativeTracker.MVVM.Models
             {
                 RemoveCombatant(combatant);
             }
-
+            
+            UnsetInitiative(Combatants);
+            
             HasStarted = false;
+        }
+
+        public void UnsetInitiative(IEnumerable<Combatant> combatants)
+        {
+            foreach (var combatant in combatants)
+            {
+                combatant.Initiative.IsSet = false;
+                combatant.Initiative.Current = 0;
+            }
         }
 
     }

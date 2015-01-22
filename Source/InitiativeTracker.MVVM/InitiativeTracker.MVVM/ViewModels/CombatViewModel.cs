@@ -142,22 +142,6 @@ namespace InitiativeTracker.MVVM.ViewModels
                 EndCombatEvent(this, args);
             }
 
-            if (args.Confirmed)
-            {
-                var monsters = _combat.Combatants
-                    .Where(combatants => combatants.Type == CombatantType.Monster).ToList();
-
-                _combat.EndCombat(monsters);
-
-            }
-            else
-            {
-                _combat.EndCombat();
-            }
-            foreach (var combatant in _combat.Combatants)
-            {
-                combatant.Initiative.IsSet = false;
-            }
         }
 
         private void RemoveCombatantExecute(IEnumerable<object> selectedItems)

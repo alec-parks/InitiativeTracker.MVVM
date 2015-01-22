@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             d:DataContext="{Binding EndCombatViewModel, Source={StaticResource Locator}}"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="400">
     <Grid>
@@ -15,7 +16,7 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <TextBlock Margin="10,10,10,5" TextWrapping="Wrap" Text="Remove all monsters from combat?" Grid.ColumnSpan="2" TextAlignment="Center" FontFamily="Tahoma" FontSize="18"/>
-        <Button Content="Off With Their Heads!" IsDefault="True" Margin="10,5,5,10" Grid.Row="1" Click="Close" />
-        <Button Content="I kinda like 'em." IsCancel="True" Grid.Column="1"  Margin="5,5,10,10" Grid.Row="1" Click="Close" />
+        <Button Content="Off With Their Heads!" IsDefault="True" Margin="10,5,5,10" Grid.Row="1" Click="Close" Command="{Binding RemoveMonsterCombatants}" />
+        <Button Content="I kinda like 'em." IsCancel="True" Grid.Column="1"  Margin="5,5,10,10" Grid.Row="1" Click="Close" Command="{Binding KeepMonsterCombatants}"/>
     </Grid>
 </UserControl>

@@ -1,8 +1,10 @@
 ﻿<Window x:Class="InitiativeTracker.MVVM.Views.Dialogs.EndCombatDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="EndCombatDialog" Height="300" Width="300">
+        xmlns:views="clr-namespace:InitiativeTracker.MVVM.Views"
+        DataContext="{Binding EndCombatViewModel, Source={StaticResource Locator}}"
+        Title="EndCombatDialog" Height="150" Width="350">
     <Grid>
-        
+        <views:EndCombatView />
     </Grid>
 </Window>
