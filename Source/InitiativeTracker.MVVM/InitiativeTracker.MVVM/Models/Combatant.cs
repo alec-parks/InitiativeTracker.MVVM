@@ -65,6 +65,12 @@ namespace InitiativeTracker.MVVM.Models
             return dupe;
         }
 
+        public void UnsetInitiative()
+        {
+            Initiative.IsSet = false;
+            Initiative.Current = 0;
+        }
+
         public override int GetHashCode()
         {
             return DisplayName.GetHashCode();

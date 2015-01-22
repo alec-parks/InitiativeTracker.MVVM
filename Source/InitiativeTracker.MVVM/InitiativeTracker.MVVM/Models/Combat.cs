@@ -68,26 +68,20 @@ namespace InitiativeTracker.MVVM.Models
             UnsetInitiative(Combatants);
         }
 
-        public void EndCombat(IEnumerable<Combatant> combatants)
-        {
-            foreach (var combatant in combatants)
-            {
-                RemoveCombatant(combatant);
-            }
-            
-            UnsetInitiative(Combatants);
-            
-            HasStarted = false;
-        }
-
         public void UnsetInitiative(IEnumerable<Combatant> combatants)
         {
             foreach (var combatant in combatants)
             {
-                combatant.Initiative.IsSet = false;
-                combatant.Initiative.Current = 0;
+                combatant.UnsetInitiative();
             }
         }
 
+        public void RemoveMonsters(IEnumerable<Combatant> monsterCombatants)
+        {
+            foreach (var monsterCombatant in monsterCombatants)
+            {
+                RemoveCombatant(monsterCombatant);
+            }
+        }
     }
 }

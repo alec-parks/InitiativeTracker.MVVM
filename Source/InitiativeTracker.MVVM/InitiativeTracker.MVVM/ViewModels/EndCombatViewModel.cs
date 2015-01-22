@@ -32,7 +32,8 @@ namespace InitiativeTracker.MVVM.ViewModels
 
         public void RemoveMonsters()
         {
-            _combat.EndCombat(MonsterCombatants);
+            _combat.RemoveMonsters(MonsterCombatants.ToList());
+            _combat.EndCombat();
         }
 
         public void KeepMonsters()
