@@ -6,9 +6,11 @@ namespace InitiativeTracker.MVVM.Models
     {
         readonly static Random DiceRoll = new Random();
 
-        public static int Roll(int die, int modifier)
+        public static int Roll(int die, int sides)
         {
-            return DiceRoll.Next(1, die + 1) + modifier;
+            int min = die;
+            int max = die*sides + 1;
+            return DiceRoll.Next(min,max);
         }
     }
 }

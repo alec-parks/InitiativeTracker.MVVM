@@ -28,7 +28,7 @@ namespace InitiativeTracker.MVVM.Models
 
         public void Roll()
         {
-            Current = DiceRoller.Roll(20, Modifier);
+            Current = DiceRoller.Roll(1,20);
             IsSet = true;
         }
     }
