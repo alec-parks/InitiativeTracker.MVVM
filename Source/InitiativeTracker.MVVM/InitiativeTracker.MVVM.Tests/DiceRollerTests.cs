@@ -1,4 +1,5 @@
-﻿using InitiativeTracker.MVVM.Models;
+﻿using System.ComponentModel.DataAnnotations;
+using InitiativeTracker.MVVM.Models;
 using Xunit;
 using Xunit.Extensions;
 
@@ -16,6 +17,16 @@ namespace InitiativeTracker.MVVM.Tests
             var result = DiceRoller.Roll(dice, sides);
 
             Assert.InRange(result, min, max);
+        }
+
+        [Fact]
+        public void ShouldReturnRandom()
+        {
+            for (int x = 0; x < 1000000; x++)
+            {
+                var roll = DiceRoller.Roll(1, 20);
+                Assert.InRange(roll, 1, 20);
+            }
         }
     }
 }
