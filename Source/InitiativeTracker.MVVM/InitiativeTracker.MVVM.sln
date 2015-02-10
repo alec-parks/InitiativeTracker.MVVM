@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitiativeTracker.MVVM", "InitiativeTracker.MVVM\InitiativeTracker.MVVM.csproj", "{D22C5C1F-7861-47DE-A347-975AABC84138}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitiativeTracker.MVVM.Tests", "InitiativeTracker.MVVM.Tests\InitiativeTracker.MVVM.Tests.csproj", "{22F4609E-19DF-459B-8FE3-E9918C6F7B6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D22C5C1F-7861-47DE-A347-975AABC84138}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D22C5C1F-7861-47DE-A347-975AABC84138}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D22C5C1F-7861-47DE-A347-975AABC84138}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22F4609E-19DF-459B-8FE3-E9918C6F7B6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22F4609E-19DF-459B-8FE3-E9918C6F7B6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22F4609E-19DF-459B-8FE3-E9918C6F7B6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22F4609E-19DF-459B-8FE3-E9918C6F7B6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
