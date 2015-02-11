@@ -3,13 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:vm="clr-namespace:InitiativeTracker.MVVM.ViewModels"
              xmlns:c="clr-namespace:InitiativeTracker.MVVM.Views"
-             xmlns:m="clr-namespace:InitiativeTracker.MVVM.Models"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <vm:ViewModelLocator x:Key="Locator" />
         <c:CombatantToColorConverter x:Key="ColorConverter" Brush="#FF00C5FF" />
         <c:CombatantToBool x:Key="CombatantToBool" />
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
-        <m:DiceRoller x:Key="DiceRoller"/>
     </Application.Resources>
 </Application>

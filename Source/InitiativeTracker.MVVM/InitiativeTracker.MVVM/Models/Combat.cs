@@ -9,6 +9,7 @@ namespace InitiativeTracker.MVVM.Models
     {
         private ObservableList<Combatant> _combatants = new ObservableList<Combatant>();
         private Observable<bool> _hasStarted = new Observable<bool>(false);
+        public DiceRoller DiceRoller = new DiceRoller();
 
         public bool HasStarted
         {
