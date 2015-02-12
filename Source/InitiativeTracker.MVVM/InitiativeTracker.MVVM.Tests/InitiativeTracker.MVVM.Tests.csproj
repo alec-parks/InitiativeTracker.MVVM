@@ -46,8 +46,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CombatantTests.cs" />
     <Compile Include="DiceRollerTests.cs" />
     <Compile Include="InitiativeTests.cs" />
+    <Compile Include="Mock\FakeDice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using InitiativeTracker.MVVM.Models;
+using InitiativeTracker.MVVM.Tests.Mock;
 using Xunit;
 using Xunit.Extensions;
 
@@ -43,13 +44,5 @@ namespace InitiativeTracker.MVVM.Tests
 
             Assert.Equal(expected,sut.Current);
         }
-    }
-
-     class FakeDice : IDice
-    {
-         public int Roll(int dice, int sides)
-         {
-            return 10;
-         }
     }
 }
