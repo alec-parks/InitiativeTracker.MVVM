@@ -9,14 +9,17 @@ namespace InitiativeTracker.MVVM.ViewModels
     {
         private Observable<Combatant> _combatant = new Observable<Combatant>();
 
+        private readonly DiceRoller _dice;
+
         public Combatant Combatant
         {
             get { return _combatant.Value; }
         }
 
-        public CombatantInitiativeViewModel(Combatant combatant)
+        public CombatantInitiativeViewModel(Combatant combatant, DiceRoller dice)
         {
             _combatant.Value = combatant;
+            _dice = dice;
         }
 
         public string DisplayName
@@ -40,7 +43,7 @@ namespace InitiativeTracker.MVVM.ViewModels
             get
             {
                 return MakeCommand
-                    .Do(() => _combatant.Value.Initiative.Roll());
+                    .Do(() => _combatant.Value.Initiative.Roll(_dice));
             }
         }
     }

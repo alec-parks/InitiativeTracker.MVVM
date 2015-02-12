@@ -27,7 +27,7 @@ namespace InitiativeTracker.MVVM.ViewModels
 
         public IEnumerable<CombatantInitiativeViewModel> CombatantInitiativeViewModels
         {
-            get { return PlayerCombatants.Select(combatant => new CombatantInitiativeViewModel(combatant)); }
+            get { return PlayerCombatants.Select(combatant => new CombatantInitiativeViewModel(combatant, _combat.DiceRoller)); }
         }
 
         public IEnumerable<Combatant> Combatants
@@ -80,7 +80,7 @@ namespace InitiativeTracker.MVVM.ViewModels
         {
             foreach (var combatant in combatants)
             {
-                combatant.Initiative.Roll();
+                combatant.Initiative.Roll(_combat.DiceRoller);
             }
         }
     }
