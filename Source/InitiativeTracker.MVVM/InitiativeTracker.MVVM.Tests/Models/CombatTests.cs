@@ -4,7 +4,7 @@ using InitiativeTracker.MVVM.Tests.Mock;
 using Xunit;
 using Xunit.Extensions;
 
-namespace InitiativeTracker.MVVM.Tests
+namespace InitiativeTracker.MVVM.Tests.Models
 {
     public class CombatTests
     {
