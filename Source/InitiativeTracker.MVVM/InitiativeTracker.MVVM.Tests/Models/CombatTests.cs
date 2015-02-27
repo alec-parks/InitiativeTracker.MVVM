@@ -41,6 +41,21 @@ namespace InitiativeTracker.MVVM.Tests.Models
         }
 
         [Fact]
+        public void CombatantShouldBeRemoved()
+        {
+            var sut = new Combat();
+            var combatant = new Combatant {Name = "Brojax", Counter = 0};
+            var monster = new Combatant {Name = "Kobold", Counter = 0};
+
+            sut.AddCombatant(combatant);
+            sut.AddCombatant(monster);
+
+            sut.RemoveCombatant(combatant);
+
+            Assert.DoesNotContain(combatant,sut.Combatants);
+        }
+
+        [Fact]
         public void InitiativeShouldBeReset()
         {
             var sut = new Combat();
