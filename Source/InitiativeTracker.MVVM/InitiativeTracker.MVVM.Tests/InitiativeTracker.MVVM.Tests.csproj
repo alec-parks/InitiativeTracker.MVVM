@@ -46,11 +46,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CombatantTests.cs" />
-    <Compile Include="CombatTests.cs" />
-    <Compile Include="DiceRollerTests.cs" />
-    <Compile Include="InitiativeTests.cs" />
     <Compile Include="Mock\FakeDice.cs" />
+    <Compile Include="Models\CombatantTests.cs" />
+    <Compile Include="Models\CombatTests.cs" />
+    <Compile Include="Models\DiceRollerTests.cs" />
+    <Compile Include="Models\InitiativeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

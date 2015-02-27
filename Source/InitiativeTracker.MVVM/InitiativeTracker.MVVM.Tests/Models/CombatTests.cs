@@ -69,5 +69,21 @@ namespace InitiativeTracker.MVVM.Tests.Models
 
             Assert.DoesNotContain(monster,sut.Combatants);
         }
+
+        [Theory]
+        [InlineData("Kobold",CombatantType.Monster,0)]
+        [InlineData("Kobold",CombatantType.Monster,10)]
+        [InlineData("Brojax",CombatantType.Player,10)]
+        public void CopyShouldIncrementCounter(string name, CombatantType type, int ctr)
+        {
+            var sut = new Combat();
+            var combatant = new Combatant { Name = name, Type = type, Counter = ctr};
+            var expected = new Combatant {Name = name, Type = type, Counter = ctr+1};
+
+            sut.AddCombatant(combatant);
+            sut.AddCopy(combatant);
+
+            Assert.Contains(expected,sut.Combatants);
+        }
     }
 }
