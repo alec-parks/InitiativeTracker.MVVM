@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CombatantTests.cs" />
+    <Compile Include="CombatTests.cs" />
     <Compile Include="DiceRollerTests.cs" />
     <Compile Include="InitiativeTests.cs" />
     <Compile Include="Mock\FakeDice.cs" />
